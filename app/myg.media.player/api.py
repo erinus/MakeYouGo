@@ -1,10 +1,9 @@
 import os
 import sys
 import json
-
 import flask
 
-module = flask.Blueprint('myg.media.player', __name__)
+module = flask.Blueprint('api.myg.media.player', __name__)
 
 @module.route('/info', methods = [ 'GET' ])
 def info():
