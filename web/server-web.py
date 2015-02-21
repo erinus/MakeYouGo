@@ -1,3 +1,4 @@
+
 import os
 import sys
 import json
@@ -15,7 +16,7 @@ import importlib.machinery
 
 for direname in os.listdir(PATH_APP):
 	module_path = os.path.realpath('%s/%s' % (PATH_APP, direname))
-	api_path = '%s/%s' % (module_path, 'api.py')
+	api_path = '%s/%s' % (module_path, 'web.py')
 	if os.path.exists(api_path) and os.path.isfile(api_path):
 		loader = importlib.machinery.SourceFileLoader(direname, api_path)
 		module = loader.load_module()
@@ -23,11 +24,11 @@ for direname in os.listdir(PATH_APP):
 
 @app.route("/")
 def main():
-	return 'MakeYouGo'
+	return 'MakeYouGo WEB'
 
 if __name__ == '__main__':
 	app.run(
 		host = '0.0.0.0',
-		port = 9999
+		port = 80
 	)
 

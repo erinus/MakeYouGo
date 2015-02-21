@@ -1,0 +1,8 @@
+{
+    "name": "myg.storage",
+    "code": "1.0.0.0",
+    "desc": "Storage",
+    "options": { 
+        "path":  "file"
+    }
+}

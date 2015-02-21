@@ -42,6 +42,7 @@
     <Content Include="app\myg.media.player\api.pyc" />
     <Content Include="app\myg.media.player\config.json" />
     <Content Include="app\myg.media.player\__pycache__\api.cpython-34.pyc" />
+    <Content Include="app\myg.storage\config.json" />
     <Content Include="LICENSE" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
@@ -60,6 +61,7 @@
     <Folder Include="app\myg.network.ethernet\" />
     <Folder Include="app\myg.network.wireless\" />
     <Folder Include="app\myg.storage\" />
+    <Folder Include="app\myg.storage\file\" />
     <Folder Include="web\" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +72,8 @@
     <Compile Include="app\myg.manager\__init__.py" />
     <Compile Include="app\myg.media.center\api.py" />
     <Compile Include="app\myg.media.player\api.py" />
+    <Compile Include="app\myg.storage\api.py" />
+    <Compile Include="web\server-web.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
