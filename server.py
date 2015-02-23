@@ -72,7 +72,8 @@ class CookieSessionInterface(flask.sessions.SessionInterface):
 			session = self.sessions[sid]
 			return session
 		else:
-			sid = hashlib.md5(uuid.uuid4().bytes).hexdigest().upper()
+			# generated session id safely
+			sid = hashlib.md5(b''.join([uuid.uuid4().bytes, os.urandom(16)])).hexdigest().upper()
 			session = CookieSession(sid=sid)
 			self.sessions[sid] = session
 			return session
@@ -98,7 +99,6 @@ class CookieSessionInterface(flask.sessions.SessionInterface):
 #     flask.session[key] = value
 # [3] get data in session
 #     data = flask.session[key]
-
 PATH_APP = 'app'
 
 app = flask.Flask(__name__)
