@@ -53,12 +53,16 @@ class CallbackDict(UpdateDictMixin, dict):
 		return '<%s %s>' % (self.__class__.__name__,
 			dict.__repr__(self))
 
+# referenced from
+# http://flask.pocoo.org/snippets/86/
 class CookieSession(CallbackDict, flask.sessions.SessionMixin):
-	def __init__(self, sid=None):
+	def __init__(self, initial=None, sid=None):
+		CallbackDict.__init__(self, initial)
 		self.sid = sid
-		self.store = {}
 		self.modified = False
 
+# referenced from
+# http://flask.pocoo.org/snippets/86/
 class CookieSessionInterface(flask.sessions.SessionInterface):
 	def __init__(self):
 		self.sessions = {}
@@ -87,6 +91,13 @@ class CookieSessionInterface(flask.sessions.SessionInterface):
 			expires=self.get_expiration_time(app, session),
 			httponly=True,
 			domain=domain)
+		
+# [1] clear session
+#     flask.session.clear()
+# [2] set data in session
+#     flask.session[key] = value
+# [3] get data in session
+#     data = flask.session[key]
 
 PATH_APP = 'app'
 
